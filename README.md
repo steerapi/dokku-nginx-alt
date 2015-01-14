@@ -64,7 +64,7 @@ This plugin has been tested on dokku version 0.2.3.
    ```
 
 5. Re-push your app.
-6. If running into problem, try to check `/etc/nginx/conf.d/dokku.conf` for duplicate entries.
+6. If running into problem, try to check `/etc/nginx/conf.d/dokku.conf` for duplicate entries due to an updated nginx.conf file.
 
 Known Issues
 ------------
