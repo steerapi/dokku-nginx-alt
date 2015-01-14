@@ -39,7 +39,7 @@ This plugin has been tested on dokku version 0.2.3.
 
 1. Install the plugin by cloning into the dokku plugins directory:
     ```sh
-    git clone https://github.com/mikexstudios/dokku-nginx-alt.git /var/lib/dokku/plugins/nginx-alt
+    git clone https://github.com/steerapi/dokku-nginx-alt.git /var/lib/dokku/plugins/nginx-alt
     ```
    Do not delete the existing `nginx-vhosts/` plugin that ships with dokku.
 
@@ -50,13 +50,13 @@ This plugin has been tested on dokku version 0.2.3.
    This step renames `nginx-vhosts/` to `.nginx-vhosts/` and calls 
    `.nginx-vhosts/install`.
    
-3. Create a `VHOST` file in your dokku app directory
-   (e.g. `/home/dokku/[app name]/VHOST`) and add each domain name on a separate
+3. Create a `VHOST` or `SSL_VHOST` file in your dokku app directory
+   (e.g. `/home/dokku/[app name]/VHOST` `/home/dokku/[app name]/SSL_VHOST`) and add each domain name on a separate
    line.
 
 4. To override the default `nginx.conf` and/or `nginx.ssl.conf` templates, place
    copies renamed as `nginx.tpl` and/or `nginx.ssl.tpl` in your
-   `/home/dokku/[app name]/` directory. When you re-push your application, you should see
+   `/home/dokku/[app name]/` directory. If applies, store each SSL server.key and server.crt in `/home/dokku/[app name]/tls/[server name]/server.{crt,key}` When you re-push your application, you should see
    a message like:
 
    ```sh
@@ -64,7 +64,7 @@ This plugin has been tested on dokku version 0.2.3.
    ```
 
 5. Re-push your app.
-
+6. If running into problem, try to check `/etc/nginx/conf.d/dokku.conf` for duplicate entries.
 
 Known Issues
 ------------
